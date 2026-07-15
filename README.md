@@ -2,7 +2,7 @@
 
 A low-cost, portable embedded system for real-time heart rate (BPM) and heart rate variability (HRV) monitoring, built on the ATmega328P microcontroller. The device measures PPG signals via the MAX30102 sensor and translates physiological data into an intuitive color-coded LED display.
 
-![AURA LIGHT Device](device_photo.jpg)
+![AURA LIGHT Device](images/Device-performance.png)
 
 ---
 
@@ -66,6 +66,9 @@ Results are displayed numerically on an OLED screen and visually through a color
 | Current Limiting | 330 Ω | WS2812B data line |
 | Button Pull-downs | 1 kΩ × 2 | Stable logic for push buttons |
 
+![AURA LIGHT Prototype](images/Prototype-design.png)
+*Assembled prototype: MAX30102 sensor mounted on the wrist strap (left) and the ATmega328P + OLED enclosure (right), prior to final assembly.*
+
 ### Pin Connections
 
 | ATmega328P Pin | Connected To |
@@ -75,6 +78,14 @@ Results are displayed numerically on an OLED screen and visually through a color
 | PD6 | WS2812B data input |
 | PD2 (INT0) | Wake-up push button |
 | PB4 / PB5 | Mode / Reset push buttons |
+
+### PCB Design
+
+| 3D Render | PCB Layout |
+|---|---|
+| ![PCB 3D Render](images/PCB-3D.png) | ![PCB Layout](images/PCB-design.png) |
+
+The custom PCB integrates the ATmega328P, MAX30102 breakout header, SSD1306 OLED header, WS2812B LED ring driver, TP4056 Li-Po charging circuit, and sleep/reset push buttons on a single board.
 
 ---
 
@@ -181,6 +192,8 @@ HRV reference: a resting RMSSD of 30–50 ms is generally considered a healthy b
 ---
 
 ## Results
+
+*The device shown above displays a live reading (BPM 61, HRV 121, status BALANCED) from the OLED and the corresponding green LED ring.*
 
 Tested against a reference heart rate of 86 BPM over a 100-second window (readings taken every 5 seconds starting at t = 60 s):
 
